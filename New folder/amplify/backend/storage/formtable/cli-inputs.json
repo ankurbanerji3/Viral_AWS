@@ -1,0 +1,51 @@
+{
+  "resourceName": "formtable",
+  "tableName": "formtable",
+  "partitionKey": {
+    "fieldName": "pk",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "sk",
+    "fieldType": "string"
+  },
+  "gsi": [
+    {
+      "name": "GSI_vector",
+      "partitionKey": {
+        "fieldName": "sk",
+        "fieldType": "string"
+      },
+      "sortKey": {
+        "fieldName": "pk",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "GSI_operator",
+      "partitionKey": {
+        "fieldName": "operator",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "GSI_process",
+      "partitionKey": {
+        "fieldName": "process",
+        "fieldType": "string"
+      }
+    },
+    {
+      "name": "GSI_inverted",
+      "partitionKey": {
+        "fieldName": "sk",
+        "fieldType": "string"
+      },
+      "sortKey": {
+        "fieldName": "pk",
+        "fieldType": "string"
+      }
+    }
+  ],
+  "triggerFunctions": []
+}

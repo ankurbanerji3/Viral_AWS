@@ -1,0 +1,342 @@
+{
+  "ModelName": "VIRAL META DATA",
+  "ModelMetadata": {
+    "Author": "200475910_Ankur",
+    "DateCreated": "Aug 07, 2023, 05:27 PM",
+    "DateLastModified": "Aug 10, 2023, 02:56 PM",
+    "Description": "BME meta data storage.",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "metaData",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "pk",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "sk",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "JSON_metaData",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "S3_bucket",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Product_Ligand",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Operator",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "Process",
+          "AttributeType": "S"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "GSI_Vector",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "Product_Ligand",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI_Operator",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "Operator",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI_Inverted",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "sk",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "pk",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI_Process",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "Process",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "pk": {
+            "S": "AAV101#SXC_HPLC"
+          },
+          "sk": {
+            "S": "2023-01-05T12:34:56Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "AAV101#LIGAND101"
+          },
+          "Operator": {
+            "S": "Eduardo"
+          },
+          "Process": {
+            "S": "SXC_HPLC"
+          }
+        },
+        {
+          "pk": {
+            "S": "LENTIVIRUS103#ELISA#H12"
+          },
+          "sk": {
+            "S": "2023-01-05T14:07:22Z"
+          },
+          "JSON_metaData": {
+            "S": "{position: H12, UV1: 2.539, UV2: 0.041, volume: 2, dilutionFactor: 10}"
+          },
+          "Product_Ligand": {
+            "S": "LENTIVIRUS103#LIGAND102"
+          },
+          "Operator": {
+            "S": "Arjun"
+          },
+          "Process": {
+            "S": "ELISA"
+          }
+        },
+        {
+          "pk": {
+            "S": "AAV107#SXC_HPLC"
+          },
+          "sk": {
+            "S": "2023-01-06T22:09:20Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "AAV107#LIGAND211"
+          },
+          "Operator": {
+            "S": "Arjun"
+          },
+          "Process": {
+            "S": "SXC_HPLC"
+          }
+        },
+        {
+          "pk": {
+            "S": "AAV101#CHROM#ION_EXCHANGE#1"
+          },
+          "sk": {
+            "S": "2023-01-05T11:12:52Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "AAV101#LIGAND101"
+          },
+          "Operator": {
+            "S": "Eduardo"
+          },
+          "Process": {
+            "S": "CHROMATOGRAPHY"
+          }
+        },
+        {
+          "pk": {
+            "S": "LENTIVIRUS103#CHROM#AFFINITY#4"
+          },
+          "sk": {
+            "S": "2023-01-05T13:09:09Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "LENTIVIRUS103#LIGAND102"
+          },
+          "Operator": {
+            "S": "Arjun"
+          },
+          "Process": {
+            "S": "CHROMATOGRAPHY"
+          }
+        },
+        {
+          "pk": {
+            "S": "ADENOVIRUS626#ELISA#A6"
+          },
+          "sk": {
+            "S": "2023-03-10T19:01:00Z"
+          },
+          "JSON_metaData": {
+            "S": "{position: A6, UV1: 2.853, UV2: 0.043, volume: 3, dilutionFactor: 10}"
+          },
+          "Product_Ligand": {
+            "S": "ADENOVIRUS626#LIGAND226"
+          },
+          "Operator": {
+            "S": "Ariana"
+          },
+          "Process": {
+            "S": "ELISA"
+          }
+        },
+        {
+          "pk": {
+            "S": "AAV107#SDS_PAIGE#A5"
+          },
+          "sk": {
+            "S": "2023-01-06T12:30:29Z"
+          },
+          "JSON_metaData": {
+            "S": "{position: A5}"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "AAV107#LIGAND211"
+          },
+          "Operator": {
+            "S": "Shobhana"
+          },
+          "Process": {
+            "S": "SDS_PAIGE"
+          }
+        },
+        {
+          "pk": {
+            "S": "LENTIVIRUS103#UP#INPUT"
+          },
+          "sk": {
+            "S": "2023-07-19T15:30:45Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Operator": {
+            "S": "Arjun"
+          },
+          "Process": {
+            "S": "UP_INPUT"
+          }
+        },
+        {
+          "pk": {
+            "S": "ADENOVIRUS626#UP#CELL_COUNTER#P2"
+          },
+          "sk": {
+            "S": "2023-02-10T13:00:07Z"
+          },
+          "JSON_metaData": {
+            "S": "{Composition: X, P2: Details}"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          },
+          "Product_Ligand": {
+            "S": "ADENOVIRUS626"
+          },
+          "Operator": {
+            "S": "Wenning"
+          },
+          "Process": {
+            "S": "UP_CELL_COUNTER"
+          }
+        },
+        {
+          "pk": {
+            "S": "Eduardo#200475910"
+          },
+          "sk": {
+            "S": "2021-08-15T17:26:46Z"
+          },
+          "JSON_metaData": {
+            "S": "{Age: 26, College: NCSU, Lab: BME}"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          }
+        },
+        {
+          "pk": {
+            "S": "AAV101"
+          },
+          "sk": {
+            "S": "2023-02-27T10:12:13Z"
+          },
+          "S3_bucket": {
+            "S": "*Link to S3 Bucket*"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
